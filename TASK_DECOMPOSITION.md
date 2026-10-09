@@ -44,18 +44,18 @@
 
 ## 4. Independent Verification
 
-- [ ] 4.1. Run the required Exercise 1 test case.
-- [ ] 4.2. Verify VNode and Real DOM structures.
-- [ ] 4.3. Verify semantic HTML.
-- [ ] 4.4. Verify button click prints "Ping".
-- [ ] 4.5. Verify XSS strings are displayed as plain text.
-- [ ] 4.6. Check for JavaScript errors and orphan nodes.
-- [ ] 4.7. Verify the test assertion.
-- [ ] 4.8. Inspect results using Chrome DevTools.
-- [ ] 4.9. Review Git status, diff, and commit history.
-- [ ] 4.10. Push the project to GitHub.
-- [ ] 4.11. Verify the GitHub repository.
-- [ ] 4.12. Prepare the final verification checklist and demo.
+- [x] 4.1. Run the required Exercise 1 test case.
+- [x] 4.2. Verify VNode and Real DOM structures.
+- [x] 4.3. Verify semantic HTML.
+- [x] 4.4. Verify button click prints "Ping".
+- [x] 4.5. Verify XSS strings are displayed as plain text.
+- [x] 4.6. Check for JavaScript errors and orphan nodes.
+- [x] 4.7. Verify the test assertion.
+- [x] 4.8. Inspect results using Chrome DevTools.
+- [x] 4.9. Review Git status, diff, and commit history.
+- [x] 4.10. Push the project to GitHub.
+- [x] 4.11. Verify the GitHub repository.
+- [x] 4.12. Prepare the final verification checklist and demo.
 
 ## Development Rules
 
