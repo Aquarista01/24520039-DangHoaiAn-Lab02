@@ -30,15 +30,15 @@
 
 ## 3. DOM Mounting Engine
 
-- [ ] 3.1. Specify the renderToDOM() contract.
-- [ ] 3.2. Implement text node rendering.
-- [ ] 3.3. Implement HTML element rendering.
-- [ ] 3.4. Handle attributes, className, and style.
-- [ ] 3.5. Register event listeners using addEventListener().
-- [ ] 3.6. Implement recursive children rendering.
-- [ ] 3.7. Mount the application using replaceChildren().
-- [ ] 3.8. Verify DOM structure and event behavior.
-- [ ] 3.9. Review Git changes and create Commit 2.
+- [x] 3.1. Specify the renderToDOM() contract.
+- [x] 3.2. Implement text node rendering.
+- [x] 3.3. Implement HTML element rendering.
+- [x] 3.4. Handle attributes, className, and style.
+- [x] 3.5. Register event listeners using addEventListener().
+- [x] 3.6. Implement recursive children rendering.
+- [x] 3.7. Mount the application using replaceChildren().
+- [x] 3.8. Verify DOM structure and event behavior.
+- [x] 3.9. Review Git changes and create Commit 2.
 
 **Commit 2:** `feat(core): implement renderToDOM`
 

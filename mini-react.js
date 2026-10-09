@@ -136,3 +136,136 @@ export function createElement(type, props, ...children) {
     }
   };
 }
+
+/**
+ * Contract: renderToDOM(vnode)
+ *
+ * Input:
+ * - vnode: a valid VNode object
+ *
+ * Output:
+ * - A real DOM Node
+ *
+ * Preconditions:
+ * - vnode contains type and props.
+ * - props.children is an array.
+ * - The vnode type is supported by the renderer.
+ *
+ * Postconditions:
+ * - TEXT_ELEMENT creates a Text node.
+ * - HTML element types create HTML elements.
+ * - Supported attributes are applied correctly.
+ * - Event listeners are registered.
+ * - All child nodes are rendered recursively.
+ * - The resulting DOM node is returned.
+ *
+ * Invariants:
+ * - Input VNodes are not mutated.
+ * - Child nodes preserve their original order.
+ * - Text content is never interpreted as HTML.
+ *
+ * Edge cases:
+ * - Empty children array
+ * - Nested VNodes
+ * - Text-only VNode
+ * - No attributes
+ * - className and style attributes
+ * - Event handlers
+ * - Malformed VNodes
+ * - Potential XSS text
+ *
+ * Verification:
+ * - Verify text rendering.
+ * - Verify HTML element rendering.
+ * - Verify attributes and style.
+ * - Verify recursive child rendering.
+ * - Verify event listeners.
+ * - Verify XSS prevention.
+ * - Verify that VNodes remain unchanged.
+ */
+
+export function renderToDOM(vnode) {
+  if (
+    !vnode ||
+    typeof vnode !== "object" ||
+    !vnode.props ||
+    !Array.isArray(vnode.props.children)
+  ) {
+    throw new TypeError("Invalid VNode");
+  }
+
+  if (vnode.type === "TEXT_ELEMENT") {
+    if (typeof vnode.props.nodeValue !== "string") {
+      throw new TypeError("Invalid text node value");
+    }
+
+    return document.createTextNode(vnode.props.nodeValue);
+  }
+
+  
+  if (typeof vnode.type !== "string") {
+    throw new TypeError("Unsupported VNode type");
+  }
+
+  
+const dom = document.createElement(vnode.type);
+
+Object.entries(vnode.props).forEach(([key, value]) => {
+  if (key === "children" || key === "nodeValue") {
+    return;
+  }
+
+if (/^on/i.test(key)) {
+  if (value === null || value === undefined || value === false) {
+    return;
+  }
+
+  if (typeof value !== "function") {
+    throw new TypeError("Event handler must be a function");
+  }
+
+  const eventName = key.slice(2).toLowerCase();
+
+  if (!eventName) {
+    throw new TypeError("Invalid event name");
+  }
+
+  dom.addEventListener(eventName, value);
+
+  return;
+}
+
+  if (value === null || value === undefined || value === false) {
+    return;
+  }
+
+  if (key === "className") {
+    dom.setAttribute("class", String(value));
+  } else if (key === "style") {
+    if (
+      typeof value !== "object" ||
+      Array.isArray(value)
+    ) {
+      throw new TypeError("Invalid style object");
+    }
+
+    Object.assign(dom.style, value);
+  } else if (key === "innerHTML" || key === "outerHTML" || key === "srcdoc") {
+    return;
+  } else if (
+    (key === "href" || key === "src" || key === "xlink:href") &&
+    /^\s*javascript:/i.test(String(value))
+  ) {
+    throw new TypeError("Unsafe URL attribute");
+  } else {
+    dom.setAttribute(key, String(value));
+  }
+});
+
+vnode.props.children.forEach(child => {
+  const childDOM = renderToDOM(child);
+  dom.appendChild(childDOM);
+});
+
+return dom;
+}
