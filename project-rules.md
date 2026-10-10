@@ -101,3 +101,22 @@ Use two required atomic commits:
 - Stage only files relevant to each milestone.
 - Verify commit history using git log.
 - Push the completed project to GitHub.
+
+---
+
+## 9. Exercise 2 - Reactive State Engine
+
+- Preserve all Exercise 1 functionality.
+- Implement custom useState using a stateStore and cursor.
+- Reset the cursor before each component render.
+- Store setters as closures over their Hook indices.
+- Use Object.is() to skip unchanged state updates.
+- Follow the Rules of Hooks.
+- Use root event delegation for Exercise 2.
+- Delegate click, input, and keydown events.
+- Do not attach child event listeners in delegation mode.
+- Prevent duplicate root event listeners.
+- Use unidirectional data flow.
+- Use replaceChildren() for the simple rendering pipeline.
+- Verify Exercise 1 and Exercise 2 independently.
+- Commit each Exercise 2 milestone separately.
