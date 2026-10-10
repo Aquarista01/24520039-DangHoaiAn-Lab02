@@ -32,3 +32,48 @@ export function setRenderer(rerenderFn) {
 export function resetCursor() {
   cursor = 0;
 }
+
+/**
+ * Custom useState Hook
+ *
+ * Input:
+ * - initialValue: any supported state value
+ *
+ * Output:
+ * - [currentState, setState]
+ *
+ * Invariants:
+ * - Every Hook uses a stable cursor index.
+ * - Existing state is preserved between renders.
+ * - Object.is() prevents unnecessary rendering.
+ *
+ * Edge cases:
+ * - 0, false, null, undefined, empty string
+ * - Direct updates and functional updates
+ */
+export function useState(initialValue) {
+  const index = cursor;
+  cursor++;
+
+  if (!(index in stateStore)) {
+    stateStore[index] = initialValue;
+  }
+
+  const setState = (nextValue) => {
+    const previousValue = stateStore[index];
+
+    const updatedValue =
+      typeof nextValue === "function"
+        ? nextValue(previousValue)
+        : nextValue;
+
+    if (Object.is(previousValue, updatedValue)) {
+      return;
+    }
+
+    stateStore[index] = updatedValue;
+    triggerRender();
+  };
+
+  return [stateStore[index], setState];
+}
