@@ -184,7 +184,10 @@ export function createElement(type, props, ...children) {
  * - Verify that VNodes remain unchanged.
  */
 
-export function renderToDOM(vnode) {
+
+export function renderToDOM(vnode, options = {}) {
+  const { delegateEvents = false } = options;
+
   if (
     !vnode ||
     typeof vnode !== "object" ||
@@ -202,70 +205,91 @@ export function renderToDOM(vnode) {
     return document.createTextNode(vnode.props.nodeValue);
   }
 
-  
   if (typeof vnode.type !== "string") {
     throw new TypeError("Unsupported VNode type");
   }
 
-  
-const dom = document.createElement(vnode.type);
+  const dom = document.createElement(vnode.type);
 
-Object.entries(vnode.props).forEach(([key, value]) => {
-  if (key === "children" || key === "nodeValue") {
-    return;
+  if (delegateEvents) {
+    dom.__vnode = vnode;
   }
 
-if (/^on/i.test(key)) {
-  if (value === null || value === undefined || value === false) {
-    return;
-  }
-
-  if (typeof value !== "function") {
-    throw new TypeError("Event handler must be a function");
-  }
-
-  const eventName = key.slice(2).toLowerCase();
-
-  if (!eventName) {
-    throw new TypeError("Invalid event name");
-  }
-
-  dom.addEventListener(eventName, value);
-
-  return;
-}
-
-  if (value === null || value === undefined || value === false) {
-    return;
-  }
-
-  if (key === "className") {
-    dom.setAttribute("class", String(value));
-  } else if (key === "style") {
-    if (
-      typeof value !== "object" ||
-      Array.isArray(value)
-    ) {
-      throw new TypeError("Invalid style object");
+  Object.entries(vnode.props).forEach(([key, value]) => {
+    if (key === "children" || key === "nodeValue") {
+      return;
     }
 
-    Object.assign(dom.style, value);
-  } else if (key === "innerHTML" || key === "outerHTML" || key === "srcdoc") {
-    return;
-  } else if (
-    (key === "href" || key === "src" || key === "xlink:href") &&
-    /^\s*javascript:/i.test(String(value))
-  ) {
-    throw new TypeError("Unsafe URL attribute");
-  } else {
-    dom.setAttribute(key, String(value));
-  }
-});
+    if (/^on/i.test(key)) {
+      if (
+        value === null ||
+        value === undefined ||
+        value === false
+      ) {
+        return;
+      }
 
-vnode.props.children.forEach(child => {
-  const childDOM = renderToDOM(child);
-  dom.appendChild(childDOM);
-});
+      if (typeof value !== "function") {
+        throw new TypeError("Event handler must be a function");
+      }
 
-return dom;
+      const eventName = key.slice(2).toLowerCase();
+
+      if (!eventName) {
+        throw new TypeError("Invalid event name");
+      }
+
+      if (delegateEvents) {
+        if (!["click", "input", "keydown"].includes(eventName)) {
+          throw new TypeError("Unsupported delegated event");
+        }
+      } else {
+        dom.addEventListener(eventName, value);
+      }
+
+      return;
+    }
+
+    if (
+      value === null ||
+      value === undefined ||
+      value === false
+    ) {
+      return;
+    }
+
+    if (key === "className") {
+      dom.setAttribute("class", String(value));
+    } else if (key === "style") {
+      if (
+        !value ||
+        typeof value !== "object" ||
+        Array.isArray(value)
+      ) {
+        throw new TypeError("Invalid style object");
+      }
+
+      Object.assign(dom.style, value);
+    } else if (
+      key === "innerHTML" ||
+      key === "outerHTML" ||
+      key === "srcdoc"
+    ) {
+      return;
+    } else if (
+      ["href", "src", "xlink:href"].includes(key) &&
+      /^\s*javascript:/i.test(String(value))
+    ) {
+      throw new TypeError("Unsafe URL attribute");
+    } else {
+      dom.setAttribute(key, String(value));
+    }
+  });
+
+  vnode.props.children.forEach(child => {
+    const childDOM = renderToDOM(child, options);
+    dom.appendChild(childDOM);
+  });
+
+  return dom;
 }

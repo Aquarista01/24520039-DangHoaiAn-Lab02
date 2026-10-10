@@ -106,15 +106,15 @@ Commit: `feat(state): implement reactive useState dispatcher`
 
 ## 7. Root Event Delegation
 
-- [ ] 7.1. Define event delegation contract.
-- [ ] 7.2. Implement setupEventDelegation().
-- [ ] 7.3. Support click, input, and keydown.
-- [ ] 7.4. Connect DOM nodes with VNodes.
-- [ ] 7.5. Extend renderToDOM() for delegation.
-- [ ] 7.6. Prevent duplicate event listeners.
-- [ ] 7.7. Verify dynamically created elements.
-- [ ] 7.8. Verify Exercise 1 compatibility.
-- [ ] 7.9. Create event delegation Git commit.
+- [x] 7.1. Define event delegation contract.
+- [x] 7.2. Implement setupEventDelegation().
+- [x] 7.3. Support click, input, and keydown.
+- [x] 7.4. Connect DOM nodes with VNodes.
+- [x] 7.5. Extend renderToDOM() for delegation.
+- [x] 7.6. Prevent duplicate event listeners.
+- [x] 7.7. Verify dynamically created elements.
+- [x] 7.8. Verify Exercise 1 compatibility.
+- [x] 7.9. Create event delegation Git commit.
 
 Commit: `feat(events): attach root event delegation listener`
 
