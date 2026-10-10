@@ -143,5 +143,79 @@ Commit: `feat(ui): assemble reactive todo application`
 - [x] 9.7. Verify DOM structure and event listeners.
 - [x] 9.8. Verify Exercise 1 compatibility.
 - [x] 9.9. Verify four Git milestone commits.
-- [ ] 9.10. Push the project to GitHub.
-- [ ] 9.11. Prepare final verification and demo.
+- [x] 9.10. Push the project to GitHub.
+- [x] 9.11. Prepare final verification and demo.
+
+---
+
+# Lab 02 – Exercise 3: Resilient State Machine & Skeleton Loader
+
+## 10. FSM Architecture
+
+- [x] 10.1. Define ViewState contract.
+- [x] 10.2. Define four exclusive states.
+- [x] 10.3. Define valid state transitions.
+- [x] 10.4. Implement feed-machine.js.
+- [x] 10.5. Verify FSM invariants and transitions.
+
+## 11. Asynchronous Data Loading
+
+- [x] 11.1. Define mock API contract.
+- [x] 11.2. Implement fetchFeed() using async/await.
+- [x] 11.3. Verify successful data loading.
+- [x] 11.4. Verify error handling.
+- [x] 11.5. Implement request ID protection.
+- [x] 11.6. Prevent stale updates after unmounting.
+
+## 12. DataFeed Component
+
+- [x] 12.1. Define DataFeed component contract.
+- [x] 12.2. Implement IDLE view.
+- [x] 12.3. Implement LOADING view.
+- [x] 12.4. Implement SUCCESS view.
+- [x] 12.5. Implement ERROR view.
+- [x] 12.6. Implement Retry Connection.
+- [x] 12.7. Integrate Event Delegation.
+- [x] 12.8. Integrate custom useState.
+
+## 13. Skeleton Loader & Rendering
+
+- [x] 13.1. Create Exercise 3 HTML entry.
+- [x] 13.2. Implement skeleton placeholders.
+- [x] 13.3. Implement CSS pulse animation.
+- [x] 13.4. Support prefers-reduced-motion.
+- [x] 13.5. Implement rendering pipeline.
+- [x] 13.6. Verify semantic HTML.
+
+## 14. Independent Verification
+
+- [x] 14.1. Verify IDLE state.
+- [x] 14.2. Verify LOADING state and skeleton.
+- [x] 14.3. Verify SUCCESS state and data.
+- [x] 14.4. Verify ERROR state and message.
+- [x] 14.5. Verify Retry Connection.
+- [x] 14.6. Verify race condition protection.
+- [x] 14.7. Verify stale update prevention after unmount.
+- [x] 14.8. Verify Event Delegation and listeners.
+- [x] 14.9. Verify Exercise 1 and 2 compatibility.
+- [x] 14.10. Check Console and browser errors.
+- [x] 14.11. Review Git diff and create milestone commit.
+- [x] 14.12. Push and verify GitHub repository.
+- [x] 14.13. Prepare final verification checklist and demo.
+
+## Exercise 3 Git Milestone
+
+`feat(ui): implement multi-state data component with skeleton feedback`
+
+## Exercise 3 Completion Criteria
+
+- FSM supports IDLE, LOADING, SUCCESS and ERROR.
+- Invalid state transitions are rejected.
+- Skeleton is visible only while loading.
+- Success displays loaded items.
+- Error displays a message and a working Retry button.
+- Old requests cannot overwrite newer results.
+- Unmounted components do not receive stale updates.
+- Root Event Delegation continues to work.
+- Exercise 1 and Exercise 2 remain functional.
+- Required Git milestone is present on GitHub.

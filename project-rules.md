@@ -1,12 +1,12 @@
 
-# Project Rules – Lab 02 Exercise 1
+# Project Rules – Lab 02 Exercises 1–3
 
 ## 1. Project Scope
 
 - Project: Mini-React VNode & Mounting Engine.
 - Use vanilla JavaScript with ES Modules.
 - Do not use React or other Virtual DOM libraries.
-- Implement only Exercise 1.
+- Implement Exercises 1–3 within their respective scope.
 - Avoid unnecessary dependencies and files.
 
 ## 2. VNode Architecture
@@ -120,3 +120,23 @@ Use two required atomic commits:
 - Use replaceChildren() for the simple rendering pipeline.
 - Verify Exercise 1 and Exercise 2 independently.
 - Commit each Exercise 2 milestone separately.
+
+---
+
+## 10. Exercise 3 - Resilient State Machine
+
+- Reuse the existing Mini-React Engine.
+- Preserve Exercise 1 and Exercise 2 functionality.
+- Represent view status as IDLE, LOADING, SUCCESS or ERROR.
+- Keep state variants mutually exclusive.
+- Validate state transitions.
+- Use async/await and try/catch for data loading.
+- Handle Error and non-Error exceptions safely.
+- Render skeleton placeholders during LOADING.
+- Use CSS animation with reduced-motion support.
+- Provide a working Retry Connection button.
+- Protect against stale asynchronous responses.
+- Prevent updates after unmounting.
+- Use root Event Delegation for user actions.
+- Verify each state and transition independently.
+- Create the required Exercise 3 Git milestone after verification.

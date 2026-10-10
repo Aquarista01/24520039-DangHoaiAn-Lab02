@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lab 02 - Exercise 3</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 16px;
+      background: #eef3f0;
+      color: #253b33;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    .data-feed {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px;
+      background: #ffffff;
+      border: 1px solid #d8e5dd;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px #203b3010;
+    }
+
+    .eyebrow {
+      color: #47846a;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 8px 0;
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    .subtitle,
+    footer {
+      color: #64796f;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+
+    button {
+      padding: 11px 18px;
+      border: 1px solid #b5cabd;
+      border-radius: 8px;
+      background: white;
+      color: #265c44;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #edf6f0;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #7dbb96;
+      outline-offset: 2px;
+    }
+
+    #load-button,
+    #retry-button {
+      background: #265e47;
+      border-color: #265e47;
+      color: white;
+    }
+
+    .panel {
+      min-height: 190px;
+      padding: 24px;
+      border: 1px solid #dce7e0;
+      border-radius: 12px;
+      background: #f9fbfa;
+    }
+
+    .idle {
+      border-style: dashed;
+    }
+
+    .success {
+      border-color: #acd4b7;
+      background: #f4faf6;
+    }
+
+    .error {
+      border-color: #e2b8b0;
+      background: #fff7f5;
+    }
+
+    .error h2 {
+      color: #a23c35;
+    }
+
+    #retry-button {
+      margin-top: 12px;
+    }
+
+    .feed-list,
+    .skeleton-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .feed-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid #dce7e0;
+    }
+
+    .feed-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feed-list p {
+      color: #61766b;
+      font-size: 14px;
+    }
+
+    .skeleton-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #e4eae6;
+    }
+
+    .skeleton {
+      display: block;
+      height: 14px;
+      border-radius: 5px;
+      background: #d5e1da;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .skeleton-title {
+      width: 55%;
+      margin-bottom: 10px;
+    }
+
+    .skeleton-line {
+      width: 90%;
+      height: 11px;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.35;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .skeleton {
+        animation: none;
+        opacity: 0.7;
+      }
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .data-feed {
+        padding: 20px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script
+    type="module"
+    src="./exercise3-main.js">
+  </script>
+</body>
+</html>
