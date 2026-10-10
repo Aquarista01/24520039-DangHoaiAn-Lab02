@@ -120,28 +120,28 @@ Commit: `feat(events): attach root event delegation listener`
 
 ## 8. Reactive Task Manager
 
-- [ ] 8.1. Define TaskApp component contract.
-- [ ] 8.2. Create TaskApp with initial tasks.
-- [ ] 8.3. Implement Add Task.
-- [ ] 8.4. Implement task completion toggle.
-- [ ] 8.5. Implement All, Pending, and Done filters.
-- [ ] 8.6. Implement reactive rendering pipeline.
-- [ ] 8.7. Verify keyboard and input interactions.
-- [ ] 8.8. Verify task count and DOM updates.
-- [ ] 8.9. Create Task Manager Git commit.
+- [x] 8.1. Define TaskApp component contract.
+- [x] 8.2. Create TaskApp with initial tasks.
+- [x] 8.3. Implement Add Task.
+- [x] 8.4. Implement task completion toggle.
+- [x] 8.5. Implement All, Pending, and Done filters.
+- [x] 8.6. Implement reactive rendering pipeline.
+- [x] 8.7. Verify keyboard and input interactions.
+- [x] 8.8. Verify task count and DOM updates.
+- [x] 8.9. Create Task Manager Git commit.
 
 Commit: `feat(ui): assemble reactive todo application`
 
 ## 9. Independent Verification
 
-- [ ] 9.1. Test useState initialization and updates.
-- [ ] 9.2. Test multiple Hooks and resetCursor.
-- [ ] 9.3. Test Object.is() equality behavior.
-- [ ] 9.4. Test root event delegation.
-- [ ] 9.5. Test Add Task and completion toggles.
-- [ ] 9.6. Test dynamic filters.
-- [ ] 9.7. Verify DOM structure and event listeners.
-- [ ] 9.8. Verify Exercise 1 compatibility.
-- [ ] 9.9. Verify four Git milestone commits.
+- [x] 9.1. Test useState initialization and updates.
+- [x] 9.2. Test multiple Hooks and resetCursor.
+- [x] 9.3. Test Object.is() equality behavior.
+- [x] 9.4. Test root event delegation.
+- [x] 9.5. Test Add Task and completion toggles.
+- [x] 9.6. Test dynamic filters.
+- [x] 9.7. Verify DOM structure and event listeners.
+- [x] 9.8. Verify Exercise 1 compatibility.
+- [x] 9.9. Verify four Git milestone commits.
 - [ ] 9.10. Push the project to GitHub.
 - [ ] 9.11. Prepare final verification and demo.

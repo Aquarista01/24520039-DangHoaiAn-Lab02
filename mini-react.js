@@ -260,6 +260,8 @@ export function renderToDOM(vnode, options = {}) {
 
     if (key === "className") {
       dom.setAttribute("class", String(value));
+    } else if (key === "htmlFor") {
+      dom.setAttribute("for", String(value));
     } else if (key === "style") {
       if (
         !value ||
