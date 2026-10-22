@@ -265,38 +265,72 @@ Commit: `feat(ui): assemble reactive todo application`
 
 ## Stage 1 – Functional Slicing
 
-- [ ] H2.1 Verify HW1 base branch and create `hw2-audio-fifo` branch.
-- [ ] H2.2 Define queue, playback and visualizer contracts.
-- [ ] H2.3 Identify concurrency, cancellation, and memory invariants.
+- [x] H2.1 Verify HW1 base branch and create `hw2-audio-fifo` branch.
+- [x] H2.2 Define queue, playback and visualizer contracts.
+- [x] H2.3 Identify concurrency, cancellation, and memory invariants.
 
 ## Stage 2 – Contract-First Specification
 
-- [ ] H2.4 Define `AudioTaskQueue.enqueue(url): Promise<AudioBuffer>`.
-- [ ] H2.5 Define UI extension `enqueueTask(url): {id, promise}` and `cancel(id)`.
-- [ ] H2.6 Specify strict FIFO dispatch with max two concurrent workers.
-- [ ] H2.7 Specify sequential playback order, despite out-of-order decoding.
-- [ ] H2.8 Specify abort and non-abortable decode behavior.
+- [x] H2.4 Define `AudioTaskQueue.enqueue(url): Promise<AudioBuffer>`.
+- [x] H2.5 Define UI extension `enqueueTask(url): {id, promise}` and `cancel(id)`.
+- [x] H2.6 Specify strict FIFO dispatch with max two concurrent workers.
+- [x] H2.7 Specify sequential playback order, despite out-of-order decoding.
+- [x] H2.8 Specify abort and non-abortable decode behavior.
 
 ## Stage 3 – Atomic Implementation
 
-- [ ] H2.9 Implement FIFO dispatcher, fetch and decode.
-- [ ] H2.10 Implement AbortController cancellation, dispose and error handling.
-- [ ] H2.11 Write queue unit tests.
-- [ ] H2.12 Implement playback using one-shot AudioBufferSourceNode.
-- [ ] H2.13 Implement 256/512-bin AnalyserNode configuration.
-- [ ] H2.14 Implement Canvas visualizer with requestAnimationFrame.
-- [ ] H2.15 Add UI, queue controls and local WAV samples.
-- [ ] H2.16 Implement responsive styling and accessibility labels.
+- [x] H2.9 Implement FIFO dispatcher, fetch and decode.
+- [x] H2.10 Implement AbortController cancellation, dispose and error handling.
+- [x] H2.11 Write queue unit tests.
+- [x] H2.12 Implement playback using one-shot AudioBufferSourceNode.
+- [x] H2.13 Implement 256/512-bin AnalyserNode configuration.
+- [x] H2.14 Implement Canvas visualizer with requestAnimationFrame.
+- [x] H2.15 Add UI, queue controls and local WAV samples.
+- [x] H2.16 Implement responsive styling and accessibility labels.
 
 ## Stage 4 – Independent Verification
 
-- [ ] H2.17 Run node unit tests (12 tests).
-- [ ] H2.18 Verify three demo WAV tracks can decode and play in input order.
-- [ ] H2.19 Verify invalid URL and invalid/unsupported audio behavior.
-- [ ] H2.20 Verify pending and active task cancellation.
-- [ ] H2.21 Verify Stop & Cancel All and resource cleanup.
-- [ ] H2.22 Verify 256/512 frequency bins and visualizer activity.
-- [ ] H2.23 Inspect Console and browser Performance/Memory.
-- [ ] H2.24 Recheck Exercise 1–3 and HW1.
-- [ ] H2.25 Review Git diff, atomic commit history, push branch.
+- [x] H2.17 Run node unit tests (12 tests).
+- [x] H2.18 Verify three demo WAV tracks can decode and play in input order.
+- [x] H2.19 Verify invalid URL and invalid/unsupported audio behavior.
+- [x] H2.20 Verify pending and active task cancellation.
+- [x] H2.21 Verify Stop & Cancel All and resource cleanup.
+- [x] H2.22 Verify 256/512 frequency bins and visualizer activity.
+- [x] H2.23 Inspect Console and browser Performance/Memory.
+- [x] H2.24 Recheck Exercise 1–3 and HW1.
+- [x] H2.25 Review Git diff, atomic commit history, push branch.
+
+# Lab 02 — Homework 3: High-Concurrency Flash-Sale E-Commerce Engine
+
+## Stage 1 — Functional Slicing (WBS)
+- [x] HW3.1 Confirm branch / scope / contracts / invariants.
+- [x] HW3.2 Specify deadline-driven timer and cancellation contract.
+- [x] HW3.3 Implement anti-drift timer and test throttling / cleanup.
+- [x] HW3.4 Implement MemoryInventoryStore CAS and conservation invariant.
+- [x] HW3.5 Implement reserve, lock TTL/expiration, release, checkout, idempotency.
+- [x] HW3.6 Test simultaneous reservations, 0-stock, expired lock, duplicate token.
+- [x] HW3.7 Implement finite-state machine and valid transitions.
+- [x] HW3.8 Assemble Mini-React UI: inventory, countdown, hold, checkout, stress test.
+- [x] HW3.9 Style responsive UI and keyboard focus.
+- [x] HW3.10 Independently verify by Node tests / Chrome DevTools / Git diff.
+- [x] HW3.11 Review three real AI Failure Audit entries and attach test evidence.
+- [x] HW3.12 Verify Exercise 1–3, HW1–2 regression and >=8 atomic commits.
+- [x] HW3.13 Push branch and prepare demo / Q&A.
+
+## Stage 2 — Contract-First Specification
+- `createAntiDriftTimer(durationMs, onTick)` -> cleanup function; absolute `Date.now()` deadline; no negatives.
+- `MemoryInventoryStore.compareAndSwap(expectedVersion, next)` -> boolean; atomic in one JS runtime only.
+- `FlashSaleEngine.reserve()` -> `{ok, token?, expiresAt?, reason?}`.
+- `FlashSaleEngine.checkout(token)` -> `{ok, receipt?, reason?}`; never after expiry.
+- `FlashSaleEngine.release(token)` -> `{ok, reason?}`; no double return of stock.
+- `transitionCustomer(state,event)` -> a valid next FSM state or throws.
+- Stock invariant: `available + reserved + sold = initialStock`, all counts nonnegative.
+- Strict limitation: this demo does not synchronize stock across tabs/devices; a backend is required for true multi-client concurrency.
+
+## Stage 3 — Atomic Generation
+- Commit one cohesive module or verified test slice per milestone; do not one-shot commit all project files.
+
+## Stage 4 — Independent Verification
+- Node unit tests, DevTools Console, tab hidden/throttling, Chrome keyboard, responsive UI, stress tests, screenshots / Git log.
+- Mark checklist as Passed only after personally executing the check.
 

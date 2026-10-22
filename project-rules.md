@@ -177,3 +177,17 @@ Use two required atomic commits:
 - Do not redraw the whole UI on each animation frame; Canvas draws directly.
 - Do not assert 60fps or memory safety without actual measurements.
 - Commit in small functional units and test before pushing.
+
+---
+## Homework 3 — Flash-Sale Engine Rules
+- Keep old Exercise 1–3 and Homework 1–2 unchanged.
+- Reuse Mini-React `createElement`, `renderToDOM`, and root event delegation.
+- Use deadline-based anti-drift countdown (`Date.now()` + `requestAnimationFrame`).
+- Separate pure business logic and FSM from UI.
+- Respect: `available + reserved + sold = initialStock` and non-negative stock.
+- Use optimistic version check with retry; never advertise browser-only locks as multi-client authoritative.
+- Expire locks before checkout and prohibit checkout after expiration.
+- Keep a full `AI_FAILURE_AUDIT.md` with three real, evidenced AI draft failures.
+- Minimum 8 meaningful, discrete Conventional Commits on the HW3 branch.
+- Check individual changes and tests before every commit; no fabricated evidence.
+- No real payments, accounts, external marketplace integrations, or unrelated features.
