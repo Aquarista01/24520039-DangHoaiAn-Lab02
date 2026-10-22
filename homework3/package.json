@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "name": "lab02-homework3-flash-sale",
+  "type": "module",
+  "scripts": { "test": "node --test *.test.mjs" }
+}
