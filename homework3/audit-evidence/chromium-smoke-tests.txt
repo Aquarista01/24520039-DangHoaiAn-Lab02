@@ -1,0 +1,14 @@
+Browser verification date: 2026-10-22
+Environment: headless Chromium, Playwright Python harness; inline combined modules
+based on Lab 02 Mini-React DOM/event APIs to work around local HTTP restrictions
+in the test environment. Re-test actual ES Module loading via Live Server on laptop.
+
+BROWSER PASS: loaded, stress 40->5, reserve, checkout; no JavaScript errors.
+Concurrent simulation: Requests 40, Success 5, Rejected 35,
+CAS conflicts 185, inventory conservation true.
+
+BROWSER EDGE PASS: 15s hold expiry, checkout disabled, mobile layout,
+no JavaScript exceptions.
+
+Important: browser smoke tests are not a multi-device/server test. They do not
+prove inter-tab consistency or real payment correctness.

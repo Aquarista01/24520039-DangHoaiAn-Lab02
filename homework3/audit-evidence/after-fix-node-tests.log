@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: deadline rather than callback count controls remaining time after 5.3-second stall
+ok 1 - deadline rather than callback count controls remaining time after 5.3-second stall
+  ---
+  duration_ms: 1.25962
+  type: 'test'
+  ...
+# Subtest: timer never goes negative even if callback occurs late
+ok 2 - timer never goes negative even if callback occurs late
+  ---
+  duration_ms: 0.813481
+  type: 'test'
+  ...
+# Subtest: cleanup cancels pending requestAnimationFrame callback
+ok 3 - cleanup cancels pending requestAnimationFrame callback
+  ---
+  duration_ms: 1.207101
+  type: 'test'
+  ...
+# Subtest: avoid state thrashing: display tick emitted only on second changes
+ok 4 - avoid state thrashing: display tick emitted only on second changes
+  ---
+  duration_ms: 0.357677
+  type: 'test'
+  ...
+# Subtest: formatter clamps and rounds up remaining seconds
+ok 5 - formatter clamps and rounds up remaining seconds
+  ---
+  duration_ms: 0.191157
+  type: 'test'
+  ...
+# Subtest: initial stock snapshot is conserved
+ok 6 - initial stock snapshot is conserved
+  ---
+  duration_ms: 0.977697
+  type: 'test'
+  ...
+# Subtest: reserve reduces available and creates a lock
+ok 7 - reserve reduces available and creates a lock
+  ---
+  duration_ms: 0.417126
+  type: 'test'
+  ...
+# Subtest: out-of-stock never creates a negative inventory
+ok 8 - out-of-stock never creates a negative inventory
+  ---
+  duration_ms: 0.588533
+  type: 'test'
+  ...
+# Subtest: 40 simultaneous reservations for 5 units produce exactly 5 winners
+ok 9 - 40 simultaneous reservations for 5 units produce exactly 5 winners
+  ---
+  duration_ms: 2.760924
+  type: 'test'
+  ...
+# Subtest: checkout consumes a reservation, increments sold, retains invariant
+ok 10 - checkout consumes a reservation, increments sold, retains invariant
+  ---
+  duration_ms: 0.283215
+  type: 'test'
+  ...
+# Subtest: checkout idempotency cannot sell twice
+ok 11 - checkout idempotency cannot sell twice
+  ---
+  duration_ms: 0.16648
+  type: 'test'
+  ...
+# Subtest: expired lock releases stock and cannot be checked out
+ok 12 - expired lock releases stock and cannot be checked out
+  ---
+  duration_ms: 0.237326
+  type: 'test'
+  ...
+# Subtest: expiration happens exactly once even across repeated snapshots
+ok 13 - expiration happens exactly once even across repeated snapshots
+  ---
+  duration_ms: 0.483296
+  type: 'test'
+  ...
+# Subtest: explicit release restores stock; repeated releases do not duplicate it
+ok 14 - explicit release restores stock; repeated releases do not duplicate it
+  ---
+  duration_ms: 0.414943
+  type: 'test'
+  ...
+# Subtest: cancelled or nonexistent token cannot checkout
+ok 15 - cancelled or nonexistent token cannot checkout
+  ---
+  duration_ms: 0.420341
+  type: 'test'
+  ...
+# Subtest: CAS rejects stale revisions and guards inventory conservation
+ok 16 - CAS rejects stale revisions and guards inventory conservation
+  ---
+  duration_ms: 0.467061
+  type: 'test'
+  ...
+# Subtest: zero stock immediately rejects reservation
+ok 17 - zero stock immediately rejects reservation
+  ---
+  duration_ms: 0.102594
+  type: 'test'
+  ...
+# Subtest: reservations use isolated unique tokens for each concurrent winner
+ok 18 - reservations use isolated unique tokens for each concurrent winner
+  ---
+  duration_ms: 0.166851
+  type: 'test'
+  ...
+# Subtest: invalid stock and TTL inputs are rejected
+ok 19 - invalid stock and TTL inputs are rejected
+  ---
+  duration_ms: 0.108964
+  type: 'test'
+  ...
+# Subtest: AI audit A: lock TTL must start at successful commit, not before an await
+ok 20 - AI audit A: lock TTL must start at successful commit, not before an await
+  ---
+  duration_ms: 0.108403
+  type: 'test'
+  ...
+# Subtest: AI audit B: unknown prototype-named lock IDs must fail cleanly
+ok 21 - AI audit B: unknown prototype-named lock IDs must fail cleanly
+  ---
+  duration_ms: 0.08669
+  type: 'test'
+  ...
+# Subtest: AI audit C: duplicate token factory cannot crash or corrupt inventory
+ok 22 - AI audit C: duplicate token factory cannot crash or corrupt inventory
+  ---
+  duration_ms: 0.185188
+  type: 'test'
+  ...
+# Subtest: valid reservation followed by checkout reaches PURCHASED
+ok 23 - valid reservation followed by checkout reaches PURCHASED
+  ---
+  duration_ms: 1.103145
+  type: 'test'
+  ...
+# Subtest: rejects invalid transition e.g. checkout before lock
+ok 24 - rejects invalid transition e.g. checkout before lock
+  ---
+  duration_ms: 0.508403
+  type: 'test'
+  ...
+# Subtest: failed reservation can be retried
+ok 25 - failed reservation can be retried
+  ---
+  duration_ms: 0.14647
+  type: 'test'
+  ...
+# Subtest: expired lock cannot checkout
+ok 26 - expired lock cannot checkout
+  ---
+  duration_ms: 0.161562
+  type: 'test'
+  ...
+# Subtest: cancellation loses old token and allows new attempt
+ok 27 - cancellation loses old token and allows new attempt
+  ---
+  duration_ms: 0.333781
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 76.280981

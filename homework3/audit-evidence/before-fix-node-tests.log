@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: deadline rather than callback count controls remaining time after 5.3-second stall
+ok 1 - deadline rather than callback count controls remaining time after 5.3-second stall
+  ---
+  duration_ms: 1.111689
+  type: 'test'
+  ...
+# Subtest: timer never goes negative even if callback occurs late
+ok 2 - timer never goes negative even if callback occurs late
+  ---
+  duration_ms: 0.853682
+  type: 'test'
+  ...
+# Subtest: cleanup cancels pending requestAnimationFrame callback
+ok 3 - cleanup cancels pending requestAnimationFrame callback
+  ---
+  duration_ms: 1.796507
+  type: 'test'
+  ...
+# Subtest: avoid state thrashing: display tick emitted only on second changes
+ok 4 - avoid state thrashing: display tick emitted only on second changes
+  ---
+  duration_ms: 0.256285
+  type: 'test'
+  ...
+# Subtest: formatter clamps and rounds up remaining seconds
+ok 5 - formatter clamps and rounds up remaining seconds
+  ---
+  duration_ms: 0.244096
+  type: 'test'
+  ...
+# Subtest: initial stock snapshot is conserved
+ok 6 - initial stock snapshot is conserved
+  ---
+  duration_ms: 2.159082
+  type: 'test'
+  ...
+# Subtest: reserve reduces available and creates a lock
+ok 7 - reserve reduces available and creates a lock
+  ---
+  duration_ms: 0.435484
+  type: 'test'
+  ...
+# Subtest: out-of-stock never creates a negative inventory
+ok 8 - out-of-stock never creates a negative inventory
+  ---
+  duration_ms: 0.646751
+  type: 'test'
+  ...
+# Subtest: 40 simultaneous reservations for 5 units produce exactly 5 winners
+ok 9 - 40 simultaneous reservations for 5 units produce exactly 5 winners
+  ---
+  duration_ms: 4.706101
+  type: 'test'
+  ...
+# Subtest: checkout consumes a reservation, increments sold, retains invariant
+ok 10 - checkout consumes a reservation, increments sold, retains invariant
+  ---
+  duration_ms: 0.363065
+  type: 'test'
+  ...
+# Subtest: checkout idempotency cannot sell twice
+ok 11 - checkout idempotency cannot sell twice
+  ---
+  duration_ms: 0.174993
+  type: 'test'
+  ...
+# Subtest: expired lock releases stock and cannot be checked out
+ok 12 - expired lock releases stock and cannot be checked out
+  ---
+  duration_ms: 0.238999
+  type: 'test'
+  ...
+# Subtest: expiration happens exactly once even across repeated snapshots
+ok 13 - expiration happens exactly once even across repeated snapshots
+  ---
+  duration_ms: 0.560252
+  type: 'test'
+  ...
+# Subtest: explicit release restores stock; repeated releases do not duplicate it
+ok 14 - explicit release restores stock; repeated releases do not duplicate it
+  ---
+  duration_ms: 0.515454
+  type: 'test'
+  ...
+# Subtest: cancelled or nonexistent token cannot checkout
+ok 15 - cancelled or nonexistent token cannot checkout
+  ---
+  duration_ms: 1.391078
+  type: 'test'
+  ...
+# Subtest: CAS rejects stale revisions and guards inventory conservation
+ok 16 - CAS rejects stale revisions and guards inventory conservation
+  ---
+  duration_ms: 0.689375
+  type: 'test'
+  ...
+# Subtest: zero stock immediately rejects reservation
+ok 17 - zero stock immediately rejects reservation
+  ---
+  duration_ms: 0.189074
+  type: 'test'
+  ...
+# Subtest: reservations use isolated unique tokens for each concurrent winner
+ok 18 - reservations use isolated unique tokens for each concurrent winner
+  ---
+  duration_ms: 0.184217
+  type: 'test'
+  ...
+# Subtest: invalid stock and TTL inputs are rejected
+ok 19 - invalid stock and TTL inputs are rejected
+  ---
+  duration_ms: 0.110015
+  type: 'test'
+  ...
+# Subtest: AI audit A: lock TTL must start at successful commit, not before an await
+not ok 20 - AI audit A: lock TTL must start at successful commit, not before an await
+  ---
+  duration_ms: 0.535775
+  type: 'test'
+  location: '/mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:106:1'
+  failureType: 'testCodeFailure'
+  error: 'new lock must not already be expired on success'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:112:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: AI audit B: unknown prototype-named lock IDs must fail cleanly
+not ok 21 - AI audit B: unknown prototype-named lock IDs must fail cleanly
+  ---
+  duration_ms: 0.150066
+  type: 'test'
+  location: '/mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:115:1'
+  failureType: 'testCodeFailure'
+  error: 'Inventory conservation invariant violated'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    MemoryInventoryStore.compareAndSwap (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.js:42:13)
+    FlashSaleEngine.release (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.js:164:22)
+    TestContext.<anonymous> (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:117:27)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: AI audit C: duplicate token factory cannot crash or corrupt inventory
+not ok 22 - AI audit C: duplicate token factory cannot crash or corrupt inventory
+  ---
+  duration_ms: 0.279079
+  type: 'test'
+  location: '/mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:121:1'
+  failureType: 'testCodeFailure'
+  error: 'Inventory conservation invariant violated'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    MemoryInventoryStore.compareAndSwap (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.js:42:13)
+    FlashSaleEngine.reserve (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.js:109:22)
+    async TestContext.<anonymous> (file:///mnt/data/lab02_hw3_package/homework3/inventory-engine.test.mjs:124:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: valid reservation followed by checkout reaches PURCHASED
+ok 23 - valid reservation followed by checkout reaches PURCHASED
+  ---
+  duration_ms: 1.082044
+  type: 'test'
+  ...
+# Subtest: rejects invalid transition e.g. checkout before lock
+ok 24 - rejects invalid transition e.g. checkout before lock
+  ---
+  duration_ms: 0.408103
+  type: 'test'
+  ...
+# Subtest: failed reservation can be retried
+ok 25 - failed reservation can be retried
+  ---
+  duration_ms: 0.211738
+  type: 'test'
+  ...
+# Subtest: expired lock cannot checkout
+ok 26 - expired lock cannot checkout
+  ---
+  duration_ms: 0.281773
+  type: 'test'
+  ...
+# Subtest: cancellation loses old token and allows new attempt
+ok 27 - cancellation loses old token and allows new attempt
+  ---
+  duration_ms: 0.303636
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 24
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 93.664621
