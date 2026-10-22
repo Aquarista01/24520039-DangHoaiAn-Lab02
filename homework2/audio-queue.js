@@ -22,7 +22,7 @@ export class AudioTaskQueue {
     }
     this.audioContext = audioContext;
     this.concurrency = concurrency;
-    this.fetchImpl = fetchImpl;
+    this.fetchImpl = (...args) => fetchImpl(...args);
     this.onEvent = onEvent;
     this.pending = [];
     this.active = new Map();

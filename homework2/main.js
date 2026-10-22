@@ -78,21 +78,34 @@ function enqueueTrack(rawUrl, label = '') {
     buffer: null, error: '', completion: null
   };
   entries.push(entry);
-  entry.completion = promise.then(buffer => {
-    if (!disposed && !terminalStates.has(entry.status)) {
-      entry.buffer = buffer;
-      entry.status = 'ready';
-      render();
-    }
-    return true; // do not retain the decoded AudioBuffer in a settled Promise
-  }, error => {
-    if (!disposed && !terminalStates.has(entry.status)) {
-      entry.status = error?.name === 'AbortError' ? 'cancelled' : 'error';
-      entry.error = String(error?.message || error);
-      render();
-    }
-    return false; // settle safely; no unhandled promise rejections
-  });
+  
+entry.completion = promise.then(buffer => {
+  if (!disposed && !terminalStates.has(entry.status)) {
+    entry.buffer = buffer;
+    entry.status = 'ready';
+    render();
+  }
+
+  return true;
+}, error => {
+  console.error(
+    `[HW2] Track #${entry.id} failed:`,
+    error
+  );
+
+  if (!disposed && !terminalStates.has(entry.status)) {
+    entry.status =
+      error?.name === 'AbortError'
+        ? 'cancelled'
+        : 'error';
+
+    entry.error = String(error?.message || error);
+    render();
+  }
+
+  return false;
+});
+
   notify(`Added track #${id} to the FIFO queue.`);
   render();
   return entry;
