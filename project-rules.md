@@ -140,3 +140,20 @@ Use two required atomic commits:
 - Use root Event Delegation for user actions.
 - Verify each state and transition independently.
 - Create the required Exercise 3 Git milestone after verification.
+
+---
+
+## 11. Homework 1 – Enterprise Data-Grid
+
+- Preserve Lab 02 Exercises 1, 2 and 3 and reuse the Mini-React VNode renderer.
+- Use vanilla JavaScript modules and JSDoc generics rather than migrating to React/TypeScript.
+- Follow the DataGridProps<T> and ColumnDef<T> contracts.
+- Use native table, thead, tbody, tr, th[scope=col], td, and button elements.
+- When using role=grid, include appropriate row/columnheader/gridcell roles.
+- Use roving tabindex and real DOM focus; keyboard arrows, Home/End, Enter/Space must work.
+- Sorting, filtering, and pagination must not mutate incoming data.
+- Selection is optional and only enabled when onRowSelect is provided.
+- Maintain accessible names, focus indicators, readable contrast, and screen reader cues.
+- Clean up root event delegation when the grid is destroyed.
+- Use atomic, meaningful Conventional Commits; never rewrite past Git history.
+- Never assert WCAG conformance or Lighthouse 100/100 without actual verification.

@@ -219,3 +219,43 @@ Commit: `feat(ui): assemble reactive todo application`
 - Root Event Delegation continues to work.
 - Exercise 1 and Exercise 2 remain functional.
 - Required Git milestone is present on GitHub.
+
+---
+
+# Lab 02 – Homework 1: Production Enterprise Data-Grid (WCAG 2.2 AA)
+
+## HW1.1 – Functional Slicing and Contract
+- [ ] HW1.1.1 Keep Exercises 1–3 unchanged and work on hw1-data-grid branch.
+- [ ] HW1.1.2 Define ColumnDef<T> and DataGridProps<T> using JSDoc.
+- [ ] HW1.1.3 Define inputs, outputs, state and invariants.
+
+## HW1.2 – Data Pipeline (filter -> sort -> paginate)
+- [ ] HW1.2.1 Implement column/data validation.
+- [ ] HW1.2.2 Implement case-insensitive global search.
+- [ ] HW1.2.3 Implement stable ascending/descending sorting.
+- [ ] HW1.2.4 Implement pagination and boundary handling.
+- [ ] HW1.2.5 Execute Node unit tests.
+
+## HW1.3 – Semantic Grid and Accessibility
+- [ ] HW1.3.1 Render semantic table, header, body, rows and cells.
+- [ ] HW1.3.2 Implement WAI-ARIA grid roles, labels and sorting state.
+- [ ] HW1.3.3 Implement roving tabindex and arrow/Home/End navigation.
+- [ ] HW1.3.4 Implement Enter/Space and optional row selection callback.
+- [ ] HW1.3.5 Restore focus after rendering and preserve keyboard access.
+- [ ] HW1.3.6 Verify contrast, focus indicators, zoom and screen reader announcements.
+
+## HW1.4 – Verification and Delivery
+- [ ] HW1.4.1 Test sorting, filtering, pagination, selection and empty states.
+- [ ] HW1.4.2 Test Chrome DevTools Console and DOM semantics.
+- [ ] HW1.4.3 Run Lighthouse: Accessibility 100/100, Best Practices 100/100.
+- [ ] HW1.4.4 Run an independent manual WCAG 2.2 AA checklist.
+- [ ] HW1.4.5 Re-test Exercise 1–3.
+- [ ] HW1.4.6 Review Git diff/log and push the verified commits.
+
+## Verification status
+- Node unit tests: NOT VERIFIED on student's machine.
+- Keyboard and UI: NOT VERIFIED on student's machine.
+- Screen reader / WCAG 2.2 AA: NOT VERIFIED.
+- Lighthouse Accessibility 100/100: NOT VERIFIED.
+- Lighthouse Best Practices 100/100: NOT VERIFIED.
+- GitHub pushed and all Exercises still work: NOT VERIFIED.
