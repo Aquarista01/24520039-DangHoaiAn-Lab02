@@ -157,3 +157,23 @@ Use two required atomic commits:
 - Clean up root event delegation when the grid is destroyed.
 - Use atomic, meaningful Conventional Commits; never rewrite past Git history.
 - Never assert WCAG conformance or Lighthouse 100/100 without actual verification.
+
+---
+
+## Homework 2 – Audio FIFO Queue and Visualizer
+
+- Preserve all Exercise 1–3 and Homework 1 source code.
+- Use `homework2/` as an isolated entry point; reuse Mini-React renderer and delegation.
+- No third-party audio libraries; use native Web Audio API.
+- Keep fetch/decode dispatch FIFO with a maximum of two active workers.
+- Under concurrency >1, processing completion may be out of order; playback must preserve queue order.
+- `enqueue(url)` returns Promise<AudioBuffer>; UI may additionally use an ID-returning method.
+- Use AbortController for fetch cancellation and queued task removal.
+- The browser does not provide abortable `decodeAudioData`; discard its result after cancellation.
+- Create a new AudioBufferSourceNode for each playback; never replay the same source node.
+- Disconnect audio nodes and cancel requestAnimationFrame during stop/dispose.
+- 256 frequency bins require fftSize 512; 512 bins require fftSize 1024.
+- Start AudioContext with a user gesture to satisfy autoplay policy.
+- Do not redraw the whole UI on each animation frame; Canvas draws directly.
+- Do not assert 60fps or memory safety without actual measurements.
+- Commit in small functional units and test before pushing.

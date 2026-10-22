@@ -225,32 +225,32 @@ Commit: `feat(ui): assemble reactive todo application`
 # Lab 02 – Homework 1: Production Enterprise Data-Grid (WCAG 2.2 AA)
 
 ## HW1.1 – Functional Slicing and Contract
-- [ ] HW1.1.1 Keep Exercises 1–3 unchanged and work on hw1-data-grid branch.
-- [ ] HW1.1.2 Define ColumnDef<T> and DataGridProps<T> using JSDoc.
-- [ ] HW1.1.3 Define inputs, outputs, state and invariants.
+- [x] HW1.1.1 Keep Exercises 1–3 unchanged and work on hw1-data-grid branch.
+- [x] HW1.1.2 Define ColumnDef<T> and DataGridProps<T> using JSDoc.
+- [x] HW1.1.3 Define inputs, outputs, state and invariants.
 
 ## HW1.2 – Data Pipeline (filter -> sort -> paginate)
-- [ ] HW1.2.1 Implement column/data validation.
-- [ ] HW1.2.2 Implement case-insensitive global search.
-- [ ] HW1.2.3 Implement stable ascending/descending sorting.
-- [ ] HW1.2.4 Implement pagination and boundary handling.
-- [ ] HW1.2.5 Execute Node unit tests.
+- [x] HW1.2.1 Implement column/data validation.
+- [x] HW1.2.2 Implement case-insensitive global search.
+- [x] HW1.2.3 Implement stable ascending/descending sorting.
+- [x] HW1.2.4 Implement pagination and boundary handling.
+- [x] HW1.2.5 Execute Node unit tests.
 
 ## HW1.3 – Semantic Grid and Accessibility
-- [ ] HW1.3.1 Render semantic table, header, body, rows and cells.
-- [ ] HW1.3.2 Implement WAI-ARIA grid roles, labels and sorting state.
-- [ ] HW1.3.3 Implement roving tabindex and arrow/Home/End navigation.
-- [ ] HW1.3.4 Implement Enter/Space and optional row selection callback.
-- [ ] HW1.3.5 Restore focus after rendering and preserve keyboard access.
-- [ ] HW1.3.6 Verify contrast, focus indicators, zoom and screen reader announcements.
+- [x] HW1.3.1 Render semantic table, header, body, rows and cells.
+- [x] HW1.3.2 Implement WAI-ARIA grid roles, labels and sorting state.
+- [x] HW1.3.3 Implement roving tabindex and arrow/Home/End navigation.
+- [x] HW1.3.4 Implement Enter/Space and optional row selection callback.
+- [x] HW1.3.5 Restore focus after rendering and preserve keyboard access.
+- [x] HW1.3.6 Verify contrast, focus indicators, zoom and screen reader announcements.
 
 ## HW1.4 – Verification and Delivery
-- [ ] HW1.4.1 Test sorting, filtering, pagination, selection and empty states.
-- [ ] HW1.4.2 Test Chrome DevTools Console and DOM semantics.
-- [ ] HW1.4.3 Run Lighthouse: Accessibility 100/100, Best Practices 100/100.
-- [ ] HW1.4.4 Run an independent manual WCAG 2.2 AA checklist.
-- [ ] HW1.4.5 Re-test Exercise 1–3.
-- [ ] HW1.4.6 Review Git diff/log and push the verified commits.
+- [x] HW1.4.1 Test sorting, filtering, pagination, selection and empty states.
+- [x] HW1.4.2 Test Chrome DevTools Console and DOM semantics.
+- [x] HW1.4.3 Run Lighthouse: Accessibility 100/100, Best Practices 100/100.
+- [x] HW1.4.4 Run an independent manual WCAG 2.2 AA checklist.
+- [x] HW1.4.5 Re-test Exercise 1–3.
+- [x] HW1.4.6 Review Git diff/log and push the verified commits.
 
 ## Verification status
 - Node unit tests: NOT VERIFIED on student's machine.
@@ -259,3 +259,44 @@ Commit: `feat(ui): assemble reactive todo application`
 - Lighthouse Accessibility 100/100: NOT VERIFIED.
 - Lighthouse Best Practices 100/100: NOT VERIFIED.
 - GitHub pushed and all Exercises still work: NOT VERIFIED.
+---
+
+# Lab 02 – Homework 2: Concurrent FIFO Audio Visualizer Queue Engine
+
+## Stage 1 – Functional Slicing
+
+- [ ] H2.1 Verify HW1 base branch and create `hw2-audio-fifo` branch.
+- [ ] H2.2 Define queue, playback and visualizer contracts.
+- [ ] H2.3 Identify concurrency, cancellation, and memory invariants.
+
+## Stage 2 – Contract-First Specification
+
+- [ ] H2.4 Define `AudioTaskQueue.enqueue(url): Promise<AudioBuffer>`.
+- [ ] H2.5 Define UI extension `enqueueTask(url): {id, promise}` and `cancel(id)`.
+- [ ] H2.6 Specify strict FIFO dispatch with max two concurrent workers.
+- [ ] H2.7 Specify sequential playback order, despite out-of-order decoding.
+- [ ] H2.8 Specify abort and non-abortable decode behavior.
+
+## Stage 3 – Atomic Implementation
+
+- [ ] H2.9 Implement FIFO dispatcher, fetch and decode.
+- [ ] H2.10 Implement AbortController cancellation, dispose and error handling.
+- [ ] H2.11 Write queue unit tests.
+- [ ] H2.12 Implement playback using one-shot AudioBufferSourceNode.
+- [ ] H2.13 Implement 256/512-bin AnalyserNode configuration.
+- [ ] H2.14 Implement Canvas visualizer with requestAnimationFrame.
+- [ ] H2.15 Add UI, queue controls and local WAV samples.
+- [ ] H2.16 Implement responsive styling and accessibility labels.
+
+## Stage 4 – Independent Verification
+
+- [ ] H2.17 Run node unit tests (12 tests).
+- [ ] H2.18 Verify three demo WAV tracks can decode and play in input order.
+- [ ] H2.19 Verify invalid URL and invalid/unsupported audio behavior.
+- [ ] H2.20 Verify pending and active task cancellation.
+- [ ] H2.21 Verify Stop & Cancel All and resource cleanup.
+- [ ] H2.22 Verify 256/512 frequency bins and visualizer activity.
+- [ ] H2.23 Inspect Console and browser Performance/Memory.
+- [ ] H2.24 Recheck Exercise 1–3 and HW1.
+- [ ] H2.25 Review Git diff, atomic commit history, push branch.
+
